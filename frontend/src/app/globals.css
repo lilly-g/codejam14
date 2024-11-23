@@ -9,12 +9,13 @@
     font-family: 'Krona One';
     font-style: normal;
     font-weight: 400;
-    src: url('fonts/KronaOne-Regular.ttf');
+    src: url('../fonts/KronaOne-Regular.ttf');
   }
   @font-face {
     font-family: 'Metrophobic';
     font-style: normal;
     font-weight: 400;
-    src: url('fonts/Metrophobic-Regular.ttf');
+    src: url('../fonts/Metrophobic-Regular.ttf');
   }
 }
+
