@@ -7,14 +7,14 @@ export default function LoginForm() {
 
     return (
         <div className="">
-            <h2 className="font-display text-3xl py-2">Log in to an existing group</h2>
+            <h2 className="font-display text-3xl py-2">Log in to Group</h2>
             <form action={formActionLogin} className="w-2/4 px-2">
                 <div>
                     <label
                         htmlFor="group-code"
                         className="font-body block mb-2"
                     >
-                        Join code:
+                        Group code:
                     </label>
                     <input
                         type="text"
