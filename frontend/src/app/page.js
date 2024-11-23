@@ -11,11 +11,13 @@ import LoginForm from "@/components/LoginForm";
 export default function Page() {
 
     return (
-        <div className="flex flex-row content-center">
+        <div className="font-black">
             <div className="basis-1/3 p-8">
-                <h1 className="font-display text-6xl">sociouts</h1>
+                <h1 className="text-4xl">extinguish inefficiency.</h1>
                 <br />
-                <p className="font-body">Tired of indecisive planning? Scared to have your ideas shot down?</p>
+                <p className="font-body">Tired of indecisive planning?</p>
+                <br />
+                <p className="font-body">Scared to have your ideas shot down?</p>
                 <br />
                 <p className="font-body">Coordinate group plans with ease using Sociouts' interactive and collaborative selection technology.</p>
                 <br />
@@ -23,11 +25,13 @@ export default function Page() {
 
             </div>
 
-            <h2>
+            <h1 className="text-center">
                 <Link href="/logInInfo">
                     Get Started
                 </Link>
-            </h2>
+            </h1>
+
+            <img src="codejam14/frontend/public/images/friendparty.png" alt="friends partying"></img>
 
         </div>
     );
