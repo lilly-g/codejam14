@@ -9,7 +9,7 @@ export default function NewOuting() {
     return (
         <div className="">
             <h2 className="font-display text-3xl py-2">Create Group</h2>
-            <form action={formActionNew} className="w-2/4 px-2">
+            <form action={formActionNew} className="w-3/4 px-2">
                 <div>
                     <label
                         htmlFor="new-group-name"

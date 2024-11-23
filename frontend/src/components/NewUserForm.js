@@ -8,7 +8,7 @@ export default function NewUser() {
     return (
         <div className="">
             <h2 className="font-display text-3xl py-2">Join Group</h2>
-            <form action={formActionJoin} className="w-2/4 px-2">
+            <form action={formActionJoin} className="w-3/4 px-2">
                 <div>
                     <label
                         htmlFor="join-code"
