@@ -7,14 +7,14 @@ export default function NewUser() {
 
     return (
         <div className="">
-            <h2 className="font-display text-3xl py-2">Join a group</h2>
+            <h2 className="font-display text-3xl py-2">Join Group</h2>
             <form action={formActionJoin} className="w-2/4 px-2">
                 <div>
                     <label
                         htmlFor="join-code"
                         className="font-body block mb-2"
                     >
-                        Enter the join code:
+                        Group code:
                     </label>
                     <input
                         type="text"
@@ -28,7 +28,7 @@ export default function NewUser() {
                         htmlFor="new-user-name"
                         className="font-body block mb-2"
                     >
-                        Enter a username:
+                        Username:
                     </label>
                     <input
                         type="text"
@@ -42,7 +42,7 @@ export default function NewUser() {
                         htmlFor="new-user-pass"
                         className="font-body block mb-2"
                     >
-                        Enter a password:
+                        Password:
                     </label>
                     <input
                         type="password"

@@ -8,14 +8,14 @@ export default function NewOuting() {
 
     return (
         <div className="">
-            <h2 className="font-display text-3xl py-2">Create a new group</h2>
+            <h2 className="font-display text-3xl py-2">Create Group</h2>
             <form action={formActionNew} className="w-2/4 px-2">
                 <div>
                     <label
                         htmlFor="new-group-name"
                         className="font-body block mb-2"
                     >
-                        Enter a group name:
+                        Group name:
                     </label>
                     <input
                         type="text"
@@ -29,7 +29,7 @@ export default function NewOuting() {
                         htmlFor="new-admin-name"
                         className="font-body block mb-2"
                     >
-                        Enter a username:
+                        Username:
                     </label>
                     <input
                         type="text"
@@ -43,7 +43,7 @@ export default function NewOuting() {
                         htmlFor="new-admin-pass"
                         className="font-body block mb-2"
                     >
-                        Enter a password:
+                        Password:
                     </label>
                     <input
                         type="password"
