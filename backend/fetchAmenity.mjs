@@ -32,7 +32,7 @@ async function convertToCoordinates(postalCode) {
     }
 }
 
-async function interpretLocation(postalCode, userRangekm, useranemity) {
+async function interpretLocation(postalCode, userRangekm, useramenity) {
     try {
         //constants for conversion
         const kmToLongitude = 111.320;
@@ -61,14 +61,14 @@ async function interpretLocation(postalCode, userRangekm, useranemity) {
         //console.log("hello " + coordinates[0] + " " + coordinates[1] + " " + coordinates[2] + " " + coordinates[3]);
 
         //if success, call fetchRestaurants (or turn getRestaurants to more general name and make restaurants a var)
-        fetchAnemity(coordinates, useranemity);
+        fetchAmenity(coordinates, useramenity);
 
     } catch (error) {
         console.error("An error occurred while fetching data:", error);
     }
 }
 
-async function fetchAnemity(coordinates, useranemity) {
+async function fetchAmenity(coordinates, useramenity) {
     try {
         // Make the POST request to the Overpass API
         const response = await fetch("https://overpass-api.de/api/interpreter", {
@@ -79,9 +79,9 @@ async function fetchAnemity(coordinates, useranemity) {
             body: "data=" + encodeURIComponent(`
                 [out:json];
                 (
-                    node["amenity"=${useranemity}](${coordinates[0]},${coordinates[2]},${coordinates[1]},${coordinates[3]});
-                    way["amenity"=${useranemity}](${coordinates[0]},${coordinates[2]},${coordinates[1]},${coordinates[3]});
-                    relation["amenity"=${useranemity}](${coordinates[0]},${coordinates[2]},${coordinates[1]},${coordinates[3]});
+                    node["amenity"=${useramenity}](${coordinates[0]},${coordinates[2]},${coordinates[1]},${coordinates[3]});
+                    way["amenity"=${useramenity}](${coordinates[0]},${coordinates[2]},${coordinates[1]},${coordinates[3]});
+                    relation["amenity"=${useramenity}](${coordinates[0]},${coordinates[2]},${coordinates[1]},${coordinates[3]});
                 );
                 out geom;
             `)
@@ -91,7 +91,7 @@ async function fetchAnemity(coordinates, useranemity) {
         const contentType = response.headers.get("content-type");
         if (contentType && contentType.includes("application/json")) {
             const data = await response.json();
-            console.log("Fetched anemity data:", JSON.stringify(data, null, 2));
+            console.log("Fetched amenity data:", JSON.stringify(data, null, 2));
         } else {
             const text = await response.text();
             console.error("Received non-JSON response:", text);
