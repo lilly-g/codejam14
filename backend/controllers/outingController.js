@@ -3,15 +3,17 @@ const Outing = require("../models/outingModel");
 // create new outing event
 exports.createNewOuting = async (req, res) => {
     // get form data
-    const { outingName, name , pass } = req.body;
+    const { newGroupName, newAdminName, newAdminPass } = req.body;
 
     // make new entry
     Outing.create({
-        name: outingName,
+        name: newGroupName,
         admin: {
-            adminName: name,
-            adminPass: pass
-        }
+            adminName: newAdminName,
+            adminPass: newAdminPass
+        },
+        status: "accepting",
+        joinCode: "joincode"
     })
 
     res.status(200).json({ "message": "success" });
@@ -19,12 +21,12 @@ exports.createNewOuting = async (req, res) => {
 
 // add new (non admin) user to event
 exports.userJoin = async (req, res) => {
-    const formData = req.body;
+    const { joinCode, newUserName, newUserPass } = req.body;
     res.status(200).json({ "message": "success" });
 }
 
 // login (admin & non admin) to event
 exports.login = async (req, res) => {
-    const formData = req.body;
+    const { groupCode, name , pass } = req.body;
     res.status(200).json({ "message": "success" });
 }

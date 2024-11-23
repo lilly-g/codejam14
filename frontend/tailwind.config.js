@@ -6,12 +6,21 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+    screens: {
+
     },
+    colors: {
+      black: '#111',
+      white: '#eee',
+
+    },
+    spacing: {
+
+    },
+    fontFamily: {
+      'display': ['"Krona One"', 'sans-serif'],
+      'body': ['Metrophobic', 'serif']
+    }
   },
   plugins: [],
 };
