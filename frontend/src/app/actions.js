@@ -1,8 +1,10 @@
+const BACKEND_PORT = 8080;
+const FRONTEND_PORT = 3000;
+
 // submit new outing form
 export async function submitFormNew(prevState, formData) {
 
-    const BACKEND_PORT = 8080;
-    const FRONTEND_PORT = 3000;
+    
 
     // get form fields in json format
     const inputs = {

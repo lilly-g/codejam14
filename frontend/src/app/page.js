@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import "./globals.css";
+import Link from 'next/link';
 
 // components
 import NewOutingForm from "@/components/NewOutingForm";
@@ -22,11 +23,11 @@ export default function Page() {
 
             </div>
 
-            <div className="basis-2/3 p-8">
-                <NewOutingForm />
-                <NewUserForm />
-                <LoginForm />
-            </div>
+            <h2>
+                <Link href="/logInInfo">
+                    Get Started
+                </Link>
+            </h2>
 
         </div>
     );
