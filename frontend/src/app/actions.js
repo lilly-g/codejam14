@@ -1,15 +1,18 @@
 // submit new outing form
 export async function submitFormNew(prevState, formData) {
 
+    const BACKEND_PORT = 8080;
+    const FRONTEND_PORT = 3000;
+
     // get form fields in json format
     const inputs = {
-        "new-group-name": formData.get('new-group-name'),
-        "new-admin-name": formData.get('new-admin-name'),
-        "new-admin-pass": formData.get('new-admin-pass'),
+        "newGroupName": formData.get('new-group-name'),
+        "newAdminName": formData.get('new-admin-name'),
+        "newAdminPass": formData.get('new-admin-pass'),
     }
     
     // send request to appropriate backend endpoint
-    const response = await fetch('http://localhost:8080/api/new', {
+    const response = await fetch(`http://localhost:${BACKEND_PORT}/api/new`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -30,13 +33,13 @@ export async function submitFormNew(prevState, formData) {
 export async function submitFormJoin(prevState, formData) {
     // get form fields in json format
     const inputs = {
-        "join-code": formData.get('join-code'),
-        "new-user-name": formData.get('new-user-name'),
-        "new-user-pass": formData.get('new-user-pass'),
+        "joinCode": formData.get('join-code'),
+        "newUserName": formData.get('new-user-name'),
+        "newUserPass": formData.get('new-user-pass'),
     }
 
     // send request to appropriate backend endpoint
-    const response = await fetch('http://localhost:8080/api/join', {
+    const response = await fetch(`http://localhost:${BACKEND_PORT}/api/join`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -57,13 +60,13 @@ export async function submitFormJoin(prevState, formData) {
 export async function submitFormLogin(prevState, formData) {
     // get form fields in json format    
     const inputs = {
-        "group-code": formData.get('group-code'),
+        "groupCode": formData.get('group-code'),
         "name": formData.get('name'),
         "pass": formData.get('pass'),
     }
 
     // send request to appropriate backend endpoint
-    const response = await fetch('http://localhost:8080/api/login', {
+    const response = await fetch(`http://localhost:${BACKEND_PORT}/api/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

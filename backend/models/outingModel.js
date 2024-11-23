@@ -2,12 +2,13 @@ const mongoose = require("mongoose");
 
 // define attributes of database entry
 const outingSchema = new mongoose.Schema({
-    name: String,
+    name: {type: String, required: true},
     admin: {
-        adminName: String,
-        adminPass: String
+        adminName: {type: String, required: true},
+        adminPass: {type: String, required: true}
     },
-    joinCode: String,
+    joinCode: {type: String, required: true},
+    status: {type: String, required: true},
     users: [{
         userName: String,
         userPass: String
@@ -19,17 +20,17 @@ const outingSchema = new mongoose.Schema({
         price: Number,
         website: String,
         yesCount: Number,
-        noCount: Number
+        noCount: Number,
+        hours: {
+            monday: {opening: Date, closing: Date},
+            tuesday: {opening: Date, closing: Date},
+            wednesday: {opening: Date, closing: Date},
+            thursday: {opening: Date, closing: Date},
+            friday: {opening: Date, closing: Date},
+            saturday: {opening: Date, closing: Date},
+            sunday: {opening: Date, closing: Date}
+        }
     }],
-    hours: {
-        monday: {opening: Date, closing: Date},
-        tuesday: {opening: Date, closing: Date},
-        wednesday: {opening: Date, closing: Date},
-        thursday: {opening: Date, closing: Date},
-        friday: {opening: Date, closing: Date},
-        saturday: {opening: Date, closing: Date},
-        sunday: {opening: Date, closing: Date}
-    }
 })
 
 // make instance of model named Outing
