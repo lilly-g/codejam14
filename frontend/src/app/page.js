@@ -1,11 +1,12 @@
 'use client'
 import React from "react";
 import { useActionState } from "react";
-import { submitForm } from "./actions";
+import { submitFormNew, submitFormJoin, submitFormLogin } from "./actions";
 
 export default function Page() {
-
-    const [message, formAction, isPending] = useActionState(submitForm, "");
+    const [messageNew, formActionNew, isPendingNew] = useActionState(submitFormNew, "");
+    const [messageJoin, formActionJoin, isPendingJoin] = useActionState(submitFormJoin, "");
+    const [messageLogin, formActionLogin, isPendingLogin] = useActionState(submitFormLogin, "");
 
     return (
         <div>
@@ -19,7 +20,7 @@ export default function Page() {
 
             <div>
                 <h2>Create a new group</h2>
-                <form>
+                <form  action={formActionNew}>
                     <label htmlFor="new-group-name">Group name:</label>
                     <input type="text" id="new-group-name" name="new-group-name"></input>
                     <label htmlFor="new-admin-name">Username:</label>
@@ -32,7 +33,7 @@ export default function Page() {
 
             <div>
                 <h2>Join a group</h2>
-                <form>
+                <form  action={formActionJoin}>
                     <label htmlFor="join-code">Join code:</label>
                     <input type="text" id="join-code" name="join-code"></input>
                     <label htmlFor="new-user-name">Username:</label>
@@ -45,7 +46,7 @@ export default function Page() {
 
             <div>
                 <h2>Log in to existing group</h2>
-                <form action={formAction}>
+                <form action={formActionLogin}>
                     <label htmlFor="group-code">Join code:</label>
                     <input type="text" id="group-code" name="group-code"></input>
                     <label htmlFor="name">Username:</label>
@@ -54,8 +55,6 @@ export default function Page() {
                     <input type="text" id="pass" name="pass"></input>
                     <input type="submit" value="Log in" />
                 </form>
-
-                <p>{isPending ? "Loading..." : message}</p>
             </div>
 
         </div>
