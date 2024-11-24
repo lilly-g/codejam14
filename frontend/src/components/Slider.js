@@ -1,9 +1,35 @@
 'use client'
 import React, { useState, useEffect } from "react";
 
-export default function Slider({location}) {
+export default function Slider({j}) {
+    const [location, setLocation] = useState(null);
+
+    useEffect(() => {
+        const fetchOuting = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/api/fetch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 'joinCode': j }),
+                });
+
+                const data = await response.json();
+                console.log(data);
+                setLocation(data); 
+                
+            } catch (error) {
+                console.error('Failed to fetch outings:', error);
+            }
+        };
+
+        fetchOuting();
+    }, []);
+
+
     return (
-        <body className="bg-purple-300">
+        <div className="bg-purple-300">
             <div className="flex flex-col h-screen background-color">
                 <div className="m-10 space-y-8 p-4 rounded-md flex-grow border-2 border-purple-900 bg-white">
                     <h1 className="font-display">{location?.name || 'Activity name here'}</h1>
@@ -28,6 +54,6 @@ export default function Slider({location}) {
                     />
                 </div>
             </div>
-        </body>
+        </div>
     );
 }

@@ -1,9 +1,13 @@
 import Slider from '../../components/Slider';
+import { cookies } from "next/headers";
 
-export default function Page() {
+
+export default async function Page() {
+    const cookieStore = await cookies();
+    const joinCode = cookieStore.get('joinCode');
 
     return (
-        <Slider />
-    )
+        <Slider j={joinCode.value}/>
+    );
   
 }
