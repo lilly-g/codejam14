@@ -79,6 +79,5 @@ exports.login = async (req, res) => {
         res.status(200).json({ "message": "User does not exist in this outing. Try joining the group instead." });
     } else {
         res.status(200).json({ "message": "success" });
-
     }
 }

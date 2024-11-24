@@ -21,7 +21,6 @@ const outingSchema = new mongoose.Schema({
         hours: String,
         yesCount: Number,
         noCount: Number,
-        voted : Array,
     }],
 })
 

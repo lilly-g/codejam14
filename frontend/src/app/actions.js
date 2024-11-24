@@ -63,8 +63,6 @@ export async function submitFormJoin(prevState, formData) {
 
     // be able to display on page
     return message;
-
-    
 }
 
 // submit login form

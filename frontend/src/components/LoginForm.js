@@ -57,9 +57,7 @@ export default function LoginForm() {
                     value="Login"
                     className="rounded-md border-2 border-purple-900 my-2 px-4 p-2 cursor-pointer hover:bg-purple-900 hover:text-white"
                 />
-                <p>{messageLogin}</p>
             </form>
-            
         </div>
     )
 }
