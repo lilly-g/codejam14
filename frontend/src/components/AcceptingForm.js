@@ -4,7 +4,7 @@ import { submitFormLocation } from "../app/actions";
 import Link from 'next/link';
 import Image from "next/image";
 
-export default function Test({j}) {
+export default function AcceptingForm({j}) {
     const [restaurants, formActionLocation, isPendingLocation] = useActionState(submitFormLocation, []);
     const [amenities, setAmenities] = useState([]);
 

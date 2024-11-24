@@ -1,5 +1,5 @@
 import "../globals.css";
-import Test from '../../components/Test';
+import AcceptingForm from '../../components/AcceptingForm';
 import { cookies } from "next/headers";
 
 
@@ -9,7 +9,7 @@ export default async function Page() {
 
     return(
         <div>
-            <Test j={joinCode.value} />
+            <AcceptingForm j={joinCode.value} />
         </div>
     )
 
