@@ -1,3 +1,6 @@
+'use server'
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 const BACKEND_PORT = 8080;
 const FRONTEND_PORT = 3000;
 
@@ -18,14 +21,18 @@ export async function submitFormNew(prevState, formData) {
         },
         body: JSON.stringify(inputs),
     });
-    
-    // get the response in json format
-    const result = await response.json();
-    
-    // if no error, redirect to 
-    if (result.ok) {
+
+    // get join code if successfull
+    if (response.ok) {
+        // get the response in json format
+        const result = await response.json();
+        // set cookie with join code
+        const cookieStore = await cookies();
+        cookieStore.set('joinCode', result.joinCode);
+
         redirect('/dashboard');
     }
+
     else {
         return "Error";
     }
@@ -88,14 +95,18 @@ export async function submitFormLogin(prevState, formData) {
 export async function submitFormLocation(prevState, formData) {
     // get all checked boxes as json
     const types = formData.getAll('types');
+    
+    // ???
+    const cookieStore = await cookies();
+    const joinCode = cookieStore.get('joinCode');
 
     // get form fields in json format    
     const inputs = {
         "postalCode": formData.get('postal-code'),
         "radius": formData.get('distance'),
         "amenities": types,
+        "joinCode": joinCode,
     }
-
     
     // send request to appropriate backend endpoint
     const response = await fetch(`http://localhost:${BACKEND_PORT}/api/search`, {

@@ -36,10 +36,6 @@ exports.createNewOuting = async (req, res) => {
     }
     let joinCode = genJoinCode();
     
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     // make new entry
     Outing.create({
         name: newGroupName,
@@ -48,14 +44,10 @@ exports.createNewOuting = async (req, res) => {
             adminPass: newAdminPass
         },
         status: "accepting",
-        joinCode: joinCode
+        joinCode: joinCode,
     })
 
-<<<<<<< Updated upstream
-    res.status(200).json({ "message": success });
-=======
-    res.status(200);
->>>>>>> Stashed changes
+    res.status(200).json({"joinCode" : joinCode});
 }
 
 // add new (non admin) user to event

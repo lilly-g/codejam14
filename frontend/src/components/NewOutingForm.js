@@ -1,3 +1,4 @@
+'use client'
 import { useActionState } from "react";
 import { submitFormNew } from "../app/actions";
 import "../app/globals.css";

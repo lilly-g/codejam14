@@ -16,20 +16,10 @@ const outingSchema = new mongoose.Schema({
     locations: [{
         name: String,
         address: String,
-        description: String,
-        price: Number,
         website: String,
+        hours: String,
         yesCount: Number,
         noCount: Number,
-        hours: {
-            monday: {opening: Date, closing: Date},
-            tuesday: {opening: Date, closing: Date},
-            wednesday: {opening: Date, closing: Date},
-            thursday: {opening: Date, closing: Date},
-            friday: {opening: Date, closing: Date},
-            saturday: {opening: Date, closing: Date},
-            sunday: {opening: Date, closing: Date}
-        }
     }],
 })
 

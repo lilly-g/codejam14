@@ -1,4 +1,4 @@
-// import fetch from 'node-fetch';
+const Outing = require("../models/outingModel");
 
 // convert postal code to {lat, long}
 async function getCoordinates(postalCode) {
@@ -85,7 +85,7 @@ async function searchForAmenities(postalCode, radius, type) {
 
 exports.findAmenities = async(req, res) => {
     // get form data
-    const { postalCode, radius, amenities } = req.body;
+    const { postalCode, radius, amenities, joinCode } = req.body;
 
     // to hold all results
     let results = [];
@@ -129,6 +129,13 @@ exports.findAmenities = async(req, res) => {
         }
         // results = results.concat(b);
     }
+
+    // update database
+    await Outing.findOneAndUpdate(
+        { joinCode: joinCode.value },
+        { $set : {locations: results, status:"surveying"}},
+    )
+
     
     res.status(200).json(results);
 }
