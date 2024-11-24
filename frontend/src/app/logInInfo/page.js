@@ -24,7 +24,7 @@ export default function LoginPage() {
                 <div className="border-2 border-purple-800">
                     <Image
                         src="/images/logo.png"
-                        alt="Example Image"
+                        alt="logo"
                         width={30} 
                         height={30}
                     />
