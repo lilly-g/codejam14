@@ -14,8 +14,16 @@ import LoginForm from "@/components/LoginForm";
 // Make sure the component is exported properly
 export default function LoginPage() {
     return (
-        <div className="bg-purple-300">
-            <div className="flex items-center pl-2 pt-2">
+        <div 
+            style={{
+                backgroundImage: "url('/images/party3.png')", // Replace with your image path
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "100vh",
+                width: "100vw",
+            }}
+        >
+            <div className="flex items-center pl-2 pt-2 bg-purple-200 pb-2">
                 <div className="border-2 border-purple-800">
                     <Image
                         src="/images/logo.png"
