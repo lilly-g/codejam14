@@ -137,5 +137,5 @@ exports.findAmenities = async(req, res) => {
     )
 
     
-    res.status(200).json(results);
+    res.status(200).json({"results": results, "joinCode": joinCode.value});
 }

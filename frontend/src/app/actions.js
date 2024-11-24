@@ -30,6 +30,8 @@ export async function submitFormNew(prevState, formData) {
         const cookieStore = await cookies();
         cookieStore.set('joinCode', result.joinCode);
 
+        console.log(result.joinCode);
+        
         redirect('/dashboard');
     }
 
@@ -116,9 +118,24 @@ export async function submitFormLocation(prevState, formData) {
         },
         body: JSON.stringify(inputs),
     });
-    
-    // get the response in json format
-    const result = await response.json();
 
-    return result;
+
+    // get join code if successfull
+    if (response.ok) {
+        // get the response in json format
+        const result = await response.json();
+
+        // set cookie with join code
+        const cookieStore = await cookies();
+        cookieStore.set('joinCode', result.joinCode);
+
+        // redirect to selection screen
+        redirect('/slider');
+
+        return result.results;
+    }
+
+    else {
+        return "Error";
+    }
 }

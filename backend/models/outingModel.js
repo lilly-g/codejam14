@@ -11,7 +11,8 @@ const outingSchema = new mongoose.Schema({
     status: {type: String, required: true},
     users: [{
         userName: String,
-        userPass: String
+        userPass: String,
+        
     }],
     locations: [{
         name: String,
