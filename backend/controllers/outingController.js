@@ -36,12 +36,6 @@ exports.createNewOuting = async (req, res) => {
     }
     let joinCode = genJoinCode();
     
-
-
-
-
-    
-
     // make new entry
     Outing.create({
         name: newGroupName,
@@ -53,17 +47,37 @@ exports.createNewOuting = async (req, res) => {
         joinCode: joinCode
     })
 
-    res.status(200).json({ "message": "success" });
+    res.status(200).json({ "message": success });
 }
 
 // add new (non admin) user to event
 exports.userJoin = async (req, res) => {
     const { joinCode, newUserName, newUserPass } = req.body;
+    const newUser = {userName : newUserName, userPass : newUserPass};
+    //const outingID = Outing.findOne({ $project: {joinCode : joinCode}})
+
+    await Outing.updateOne(
+        { $addToSet: { users: newUser } }
+    );
+
     res.status(200).json({ "message": "success" });
+
+    
 }
 
 // login (admin & non admin) to event
 exports.login = async (req, res) => {
     const { groupCode, name , pass } = req.body;
-    res.status(200).json({ "message": "success" });
+
+    const currentUser = {userName : name, userPass : pass};
+
+    let search = Outing.find({
+        users : {$elemMatch : currentUser}
+    });
+    search = (await search).length;
+    if(search === 0){
+        res.status(200).json({ "message": "User does not exist in this outing. Try joining the group instead." });
+    } else {
+        res.status(200).json({ "message": "success" });
+    }
 }

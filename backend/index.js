@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 
 const outingRouter = require("./routes/outingRouter");
 
-app.use(cors({ origin: `http://localhost:${FRONTEND_PORT}` }));
+app.use(cors());
 app.use(express.json());
 app.use("/api", outingRouter);
 
