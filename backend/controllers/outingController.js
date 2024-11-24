@@ -70,12 +70,18 @@ exports.login = async (req, res) => {
     const { groupCode, name , pass } = req.body;
 
     const currentUser = {userName : name, userPass : pass};
+    const curAdmin = {adminName : name, adminPass : pass};
 
     let search = Outing.find({
         users : {$elemMatch : currentUser}
     });
+    let search1 = Outing.find({
+        joinCode : groupCode,
+        admin : curAdmin
+    });
     search = (await search).length;
-    if(search === 0){
+    search1 = (await search1).length;
+    if(search === 0 && search1 === 0){
         res.status(200).json({ "message": "User does not exist in this outing. Try joining the group instead." });
     } else {
         res.status(200).json({ "message": "success" });
