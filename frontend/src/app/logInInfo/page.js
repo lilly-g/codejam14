@@ -13,7 +13,7 @@ export default function LoginPage() {
     return (
         <div 
             style={{
-                backgroundImage: "url('/images/party3.png')", // Replace with your image path
+                backgroundImage: "url('/images/party3.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: "100vh",
@@ -24,7 +24,7 @@ export default function LoginPage() {
                 <div className="border-2 border-purple-800">
                     <Image
                         src="/images/logo.png"
-                        alt="Example Image"
+                        alt="logo"
                         width={30} 
                         height={30}
                     />
