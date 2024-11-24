@@ -7,8 +7,8 @@ export default function LoginForm() {
 
     return (
         <div className="">
-            <h2 className="font-display text-3xl py-2">Log in to Group</h2>
-            <form action={formActionLogin} className="w-3/4 px-2">
+            <h2 className="font-display text-3xl py-2">log in to group</h2>
+            <form action={formActionLogin} className="w-2/4 px-2">
                 <div>
                     <label
                         htmlFor="group-code"
@@ -48,13 +48,13 @@ export default function LoginForm() {
                         type="password"
                         id="pass"
                         name="pass"
-                        className="rounded-md border-2 border-slate-400 active:border-slate-800 w-full p-1"
+                        className="rounded-md border-2 border-slate-400 active:border-purple-900 w-full p-1"
                     />
                 </div>
                 <input
                     type="submit"
                     value="Login"
-                    className="rounded-md border-2 border-slate-800 my-2 px-4 p-2 cursor-pointer hover:bg-slate-800 hover:text-white"
+                    className="rounded-md border-2 border-purple-900 my-2 px-4 p-2 cursor-pointer hover:bg-purple-900 hover:text-white"
                 />
             </form>
         </div>

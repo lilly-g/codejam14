@@ -8,7 +8,7 @@ export default function NewOuting() {
 
     return (
         <div className="">
-            <h2 className="font-display text-3xl py-2">Create Group</h2>
+            <h2 className="font-display text-3xl py-2">create group</h2>
             <form action={formActionNew} className="w-3/4 px-2">
                 <div>
                     <label
@@ -54,8 +54,8 @@ export default function NewOuting() {
                 </div>
                 <input
                     type="submit"
-                    value="Create"
-                    className="rounded-md border-2 border-slate-800 my-2 px-4 p-2 cursor-pointer hover:bg-slate-800 hover:text-white"
+                    value="Login"
+                    className="rounded-md border-2 border-purple-900 my-2 px-4 p-2 cursor-pointer hover:bg-purple-900 hover:text-white"
                 />
             </form>
         </div>

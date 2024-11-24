@@ -2,6 +2,7 @@
 
 'use client';
 import React from "react";
+import Image from "next/image";
 //import "./globals.css";
 
 // components
@@ -12,17 +13,29 @@ import LoginForm from "@/components/LoginForm";
 // Make sure the component is exported properly
 export default function LoginPage() {
     return (
-        
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="flex space-x-8">
-                <div className="w-96 p-8 border-4 border-indigo-700 rounded-lg">
-                    <NewOutingForm />
+        <div className="bg-purple-300">
+            <div className="flex pl-2 pt-2">
+                <div className="border-2 border-purple-800">
+                    <Image
+                        src="/images/logo.png"
+                        alt="Example Image"
+                        width={60} 
+                        height={50}
+                    />
                 </div>
-                <div className="w-96 p-8 border-4 border-indigo-700 rounded-lg">
-                    <NewUserForm />
-                </div>
-                <div className="w-96 p-8 border-4 border-indigo-700 rounded-lg">
-                    <LoginForm />
+                <p className="font-display text-purple-900 pt-10 pl-2">sociouts</p>
+            </div>
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="flex space-x-8">
+                    <div className="w-96 p-8 border-4 border-purple-800 rounded-lg bg-purple-50">
+                        <NewOutingForm />
+                    </div>
+                    <div className="w-96 p-8 border-4 border-purple-800 rounded-lg bg-purple-50">
+                        <NewUserForm />
+                    </div>
+                    <div className="w-96 p-8 border-4 border-purple-800 rounded-lg bg-purple-50">
+                        <LoginForm />
+                    </div>
                 </div>
             </div>
         </div>
