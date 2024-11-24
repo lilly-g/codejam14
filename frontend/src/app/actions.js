@@ -30,8 +30,6 @@ export async function submitFormNew(prevState, formData) {
         const cookieStore = await cookies();
         cookieStore.set('joinCode', result.joinCode);
 
-        console.log(result.joinCode);
-        
         redirect('/dashboard');
     }
 
@@ -131,8 +129,6 @@ export async function submitFormLocation(prevState, formData) {
 
         // redirect to selection screen
         redirect('/slider');
-
-        return result.results;
     }
 
     else {
