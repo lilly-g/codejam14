@@ -3,6 +3,7 @@
 'use client';
 import React from "react";
 import Image from "next/image";
+import Link from 'next/link';
 //import "./globals.css";
 
 // components
@@ -23,18 +24,22 @@ export default function LoginPage() {
                         height={30}
                     />
                 </div>
-                <p className="font-display text-purple-900 pl-2">sociouts</p>
+                <button className="font-display text-purple-900 pl-2">
+                    <Link href="../" className="btn btn-blue">
+                        sociouts
+                    </Link>
+                </button>
             </div>
 
             <div className="min-h-screen flex items-center justify-center">
                 <div className="flex space-x-8">
-                    <div className="w-96 p-8 border-4 border-purple-800 rounded-lg bg-purple-50">
+                    <div className="w-96 p-8 border-4 border-purple-900 rounded-lg bg-purple-50">
                         <NewOutingForm />
                     </div>
-                    <div className="w-96 p-8 border-4 border-purple-800 rounded-lg bg-purple-50">
+                    <div className="w-96 p-8 border-4 border-purple-900 rounded-lg bg-purple-50">
                         <NewUserForm />
                     </div>
-                    <div className="w-96 p-8 border-4 border-purple-800 rounded-lg bg-purple-50">
+                    <div className="w-96 p-8 border-4 border-purple-900 rounded-lg bg-purple-50">
                         <LoginForm />
                     </div>
                 </div>
