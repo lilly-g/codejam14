@@ -2,7 +2,7 @@
 import React from "react";
 import Link from 'next/link';
 
-export default function Page(first, second, third) {
+export default function Page() {
 
     return (
         <div className="flex flex-col items-center space-y-8 bg-purple-100 min-h-screen">
