@@ -7,7 +7,7 @@ export default function LoginForm() {
 
     return (
         <div className="">
-            <h2 className="font-display text-3xl py-2">log in to group</h2>
+            <h2 className="font-display text-3xl py-2">log in</h2>
             <form action={formActionLogin} className="w-3/4 px-2">
                 <div>
                     <label
