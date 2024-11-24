@@ -3,9 +3,6 @@ const FRONTEND_PORT = 3000;
 
 // submit new outing form
 export async function submitFormNew(prevState, formData) {
-
-    
-
     // get form fields in json format
     const inputs = {
         "newGroupName": formData.get('new-group-name'),
@@ -24,11 +21,14 @@ export async function submitFormNew(prevState, formData) {
     
     // get the response in json format
     const result = await response.json();
-    // get message from response
-    const message = result.message;
-
-    // be able to display on page
-    return message;
+    
+    // if no error, redirect to 
+    if (result.ok) {
+        redirect('/dashboard');
+    }
+    else {
+        return "Error";
+    }
 }
 
 // submit join form
@@ -83,4 +83,31 @@ export async function submitFormLogin(prevState, formData) {
 
     // be able to display on page
     return message;
+}
+
+export async function submitFormLocation(prevState, formData) {
+    // get all checked boxes as json
+    const types = formData.getAll('types');
+
+    // get form fields in json format    
+    const inputs = {
+        "postalCode": formData.get('postal-code'),
+        "radius": formData.get('distance'),
+        "amenities": types,
+    }
+
+    
+    // send request to appropriate backend endpoint
+    const response = await fetch(`http://localhost:${BACKEND_PORT}/api/search`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(inputs),
+    });
+    
+    // get the response in json format
+    const result = await response.json();
+
+    return result;
 }
